@@ -4,7 +4,7 @@
     <div class="col-sm-3 mb-3">
         <select name="anio" id="anio">
             <?php 
-                for($i=date('y'); $i<=2018; $i--){
+                for($i=date('yyyy'); $i<=2018; $i--){
                     ?>
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php
