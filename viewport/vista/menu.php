@@ -43,14 +43,38 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>    
+        </ul>
+    </div>  
+    </nav>
+
+    
+
     <div class="container">
+    <?php
+        include 'reporte.php';
+    ?>
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra" > cambiarcontra</button>
         <div style="display:none;">
             <input id="nuevop" name="nuevop" class="form-control input-sm" value="<?php echo $_SESSION['nuevo'];?>">
             <input id="Usuario" name="Usuario" class="form-control input-sm" value="<?php echo $_SESSION['usuarios'];?>">
         </div>
-
-        <?php  include 'reporte.php'; ?>
     </div>
 
   

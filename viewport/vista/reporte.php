@@ -1,6 +1,5 @@
-<div class="card-body m-0 vh-100 row justify-content-center align-items-center">
-
-    <div class="cuadro m-3 card-body ">
+<div class="card-body vh-100 row justify-content-center align-items-center">
+    <div class="cuadro m-2 card-body ">
         <div class="row">
             <div class="col-sm mb-3">
                 <div class="title">
