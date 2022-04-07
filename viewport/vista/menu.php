@@ -57,6 +57,7 @@
         </div>
     </div>
 
+  
 
     <div class="modal fade" id="myModalCambiarContra" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered" >
@@ -94,7 +95,14 @@
     include '../configuracion/alertas.php';
     ?>
 
+    <div class="footer">
+        <div class="list-inline-item">
+            <p style="text-align:left" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p> 
+            <p style="text-align:left" class="mx-1">Creado por Equipo Informático ETS</p>
+        </div>
+    </div>
 
 </body>
+
 
 </html>
