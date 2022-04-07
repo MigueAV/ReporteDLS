@@ -13,7 +13,13 @@ $Fdia10 = date('Y-m-d', strtotime($hoy . '- 10 days'));
 if ($username != '' and $userpass != '') {
     $idperfil = $usuario->IngresarLogin($username, $userpass);
 
-    if ($idperfil['Id'] != '' and password_verify($userpass, $idperfil['Clave'])) {
+    if(isset($idperfil['Id'])){
+        $idlogin=$idperfil['Id'];
+    }else{
+        $idlogin='';
+    }
+
+    if ($idlogin != '' and password_verify($userpass, $idperfil['Clave'])) {
         $_SESSION['usuarios'] = strtoupper($username);
         $_SESSION['id'] = $idperfil['Id'];
         $_SESSION['perfil'] = $idperfil['Perfil'];
