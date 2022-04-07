@@ -45,6 +45,10 @@
 
 <body>
 
+    <?php
+        include 'reporte.php';
+    ?>
+
     <div class="container">
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra" > cambiarcontra</button>
         <div style="display:none;">
