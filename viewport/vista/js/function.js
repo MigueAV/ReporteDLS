@@ -1,13 +1,27 @@
-saltar = (campo, e) => {
-    if (e.keyCode == 13) {
-        $("#" + campo).focus();
+function saltar(e,id)
+{
+    // Obtenemos la tecla pulsada
+    (e.keyCode)?k=e.keyCode:k=e.which;
+
+    // Si la tecla pulsada es enter (codigo ascii 13)
+    if(k==13)
+    {
+        // Si la variable id contiene "submit" enviamos el formulario
+        if(id=="submit")
+        {
+            document.forms[0].submit();
+        }else{
+            // nos posicionamos en el siguiente input
+            document.getElementById(id).focus();
+        }
     }
 }
 
-seleccionar = (id) => {
+function seleccionar(id){
     valor_input = document.getElementById(id).value;
     longitud = valor_input.length;
-    document.getElementById(id).setSelectionRange(0, longitud);
+    document.getElementById(id).setSelectionRange (0, longitud);
+
 }
 
 $(document).ready(function(){
