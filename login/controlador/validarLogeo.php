@@ -41,7 +41,7 @@ if($username!='' and $userpass!='') {
         <?php
         echo'<script type="text/javascript">
             var v_usuario=document.getElementById("usuario").value;
-           window.location.href="./FUA/";
+           window.location.href="./viewport/";
         </script>';
         ?>
         <?php
