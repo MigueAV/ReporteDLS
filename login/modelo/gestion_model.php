@@ -40,5 +40,3 @@ class gestion_model{
         $stmt=sqlsrv_query($this->db,$consulta);
     }
 }
-
-?>

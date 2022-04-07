@@ -19,6 +19,3 @@ sqlsrv_free_stmt($obtenertodo);
 $data = json_encode($result);
 
 echo $data ;
-
-
-?>
