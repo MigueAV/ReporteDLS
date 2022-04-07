@@ -33,6 +33,16 @@ html,body {
     z-index: 1;
   }
   
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(22, 20, 20);
+    color: rgb(243, 223, 223);
+    text-align: center;
+ }
+
  html,body::before {
     content: "";
     display: block;
