@@ -27,9 +27,16 @@
         if(valor!='0'){
             $('#cambiarcontra').click();
         }
-        
+
         $("#cambiarcontra").click(function(){
             setTimeout(focuscontra, 500);
+        });
+
+        $("#confi_contra").keyup(function() {
+            if(event.keyCode === 13){
+                $("#guardar_nuevacontra").click();
+            }
+
         });
     });
     </script>

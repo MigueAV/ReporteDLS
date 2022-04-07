@@ -73,9 +73,8 @@ function guardar_nuevacontra(){
             }
         });
     }
-    function cerrarsesion(){
-        window.location="/ReporteDLS";
-    }
-    
+}
 
+function cerrarsesion(){
+    window.location="/ReporteDLS";
 }
