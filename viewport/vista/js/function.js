@@ -9,3 +9,7 @@ seleccionar = (id) => {
     longitud = valor_input.length;
     document.getElementById(id).setSelectionRange(0, longitud);
 }
+
+$(document).ready(function(){
+    
+});
