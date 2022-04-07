@@ -1,17 +1,9 @@
-function saltar(e,id)
-{
-    // Obtenemos la tecla pulsada
-    (e.keyCode)?k=e.keyCode:k=e.which;
-
-    // Si la tecla pulsada es enter (codigo ascii 13)
-    if(k==13)
-    {
-        // Si la variable id contiene "submit" enviamos el formulario
-        if(id=="submit")
-        {
+function saltar(e, id) {
+    (e.keyCode) ? k = e.keyCode : k = e.which;
+    if (k == 13) {
+        if (id == "submit") {
             document.forms[0].submit();
-        }else{
-            // nos posicionamos en el siguiente input
+        } else {
             document.getElementById(id).focus();
         }
     }

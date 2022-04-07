@@ -18,5 +18,3 @@ if($username!='' and $dni!='') {
         echo 'ERROR';
     }
 }
-
-?>
