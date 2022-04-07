@@ -4,9 +4,7 @@
     include '../configuracion/header.php';
 ?>
 <head>
-
-    <link rel="stylesheet" type="text/css" href="login/vista/styles.css">
-    <script src="./viewport/vista/js/function.js"></script>
+    <script src="../viewport/vista/js/function.js"></script>
 </head>
 
 <body>
