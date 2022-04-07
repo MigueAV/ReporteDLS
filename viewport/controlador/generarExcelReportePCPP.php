@@ -43,15 +43,15 @@ $i = 4;
 foreach ($lista as $detalle) {
     $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('A' . $i, $detalle['NRO'])
-        ->setCellValue('B' . $i, 'FUA')
-        ->setCellValue('C' . $i, 'HISTORIA')
-        ->setCellValue('D' . $i, 'BENEFICIARIO')
-        ->setCellValue('E' . $i, 'FECHA')
-        ->setCellValue('F' . $i, 'SERVICIO')
-        ->setCellValue('G' . $i, 'CONTRATO')
-        ->setCellValue('H' . $i, 'PERIODO')
-        ->setCellValue('I' . $i, 'DIGITADOR')
-        ->setCellValue('J' . $i, 'USUARIO');
+        ->setCellValue('B' . $i, $detalle['FUA'])
+        ->setCellValue('C' . $i, $detalle['historia'])
+        ->setCellValue('D' . $i, $detalle['Beneficiario'])
+        ->setCellValue('E' . $i, $detalle['Fecha'])
+        ->setCellValue('F' . $i, $detalle['Servicio'])
+        ->setCellValue('G' . $i, $detalle['Contrato'])
+        ->setCellValue('H' . $i, $detalle['Periodo'])
+        ->setCellValue('I' . $i, $detalle['Digitador'])
+        ->setCellValue('J' . $i, $detalle['Usuario']);
 }
 
 
