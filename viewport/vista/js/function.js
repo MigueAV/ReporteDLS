@@ -13,3 +13,7 @@ seleccionar = (id) => {
 $(document).ready(function(){
     
 });
+
+function focuscontra(){
+    $('#actual_contra').trigger('focus');
+}
