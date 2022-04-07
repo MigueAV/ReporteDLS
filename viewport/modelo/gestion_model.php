@@ -1,6 +1,7 @@
 <?php
 
-class gestion_model{
+class gestion_model
+{
     private $db;
     private $dbg;
 
@@ -10,16 +11,24 @@ class gestion_model{
         $this->dbg = database::conexionGESEGUR();
     }
 
-    public function ResetearUsuario($codusuario,$dni){
-        $consulta="EXEC SIS_ResetearUsuario '$codusuario','$dni'";
-        $stmt=sqlsrv_query($this->db,$consulta);
+    public function ResetearUsuario($codusuario, $dni)
+    {
+        $consulta = "EXEC SIS_ResetearUsuario '$codusuario','$dni'";
+        $stmt = sqlsrv_query($this->db, $consulta);
         return $stmt;
     }
 
-    public function ListaEstablecimiento(){
+    public function ListaEstablecimiento()
+    {
         $c = "exec [CTL].[LIST_EESS]";
         $s = sqlsrv_query($this->dbg, $c);
         return $s;
     }
 
+    public function ReportePCPP($anio, $eess)
+    {
+        $c = "exec [dbo].[REPORTE_PCPP] '$anio', '$eess'";
+        $s = sqlsrv_query($this->db, $c);
+        return $s;
+    }
 }

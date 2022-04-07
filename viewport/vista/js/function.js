@@ -37,6 +37,14 @@ function listaEstablecimiento() {
 
 $(document).ready(function () {
     listaEstablecimiento();
+
+    $("#btnReporte").click(function(){
+        generarReportePCPP();
+    }).keyup(function(event){
+        if(event.keyCode == 13){
+            generarReportePCPP();
+        }
+    });
 });
 
 function focuscontra() {
@@ -88,4 +96,24 @@ function guardar_nuevacontra() {
 
 function cerrarsesion() {
     window.location = "/ReporteDLS";
+}
+
+function generarReportePCPP(){
+    var anio = $("#anio").val();
+    var eess = $("#establecimiento").val();
+
+    var data = {
+        anio: anio,
+        eess: eess
+    };
+
+    $.ajax({
+        type: 'post',
+        data: data,
+        url: 'controlador/reportePCPP.php',
+        dataType: 'json',
+        success: function(data){
+            console.log(data);
+        }
+    });
 }
