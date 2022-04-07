@@ -91,16 +91,18 @@
         </div>
     </div>
 
-    <?php
-    include '../configuracion/alertas.php';
-    ?>
-
     <div class="footer">
         <div class="list-inline-item">
             <p style="text-align:left" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p> 
             <p style="text-align:left" class="mx-1">Creado por Equipo Informático ETS</p>
         </div>
     </div>
+    
+    <?php
+    include '../configuracion/alertas.php';
+    ?>
+
+  
 
 </body>
 
