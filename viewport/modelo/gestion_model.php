@@ -10,7 +10,7 @@ class gestion_model{
 
     public function ResetearUsuario($codusuario,$dni){
         $consulta="EXEC SIS_ResetearUsuario '$codusuario','$dni'";
-        $stmt=sqlsrv_query($this->dbAuditoria,$consulta);
+        $stmt=sqlsrv_query($this->db,$consulta);
         return $stmt;
     }
 

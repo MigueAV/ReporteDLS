@@ -49,6 +49,7 @@
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra" > cambiarcontra</button>
         <div style="display:none;">
             <input id="nuevop" name="nuevop" class="form-control input-sm" value="<?php echo $_SESSION['nuevo'];?>">
+            <input id="Usuario" name="Usuario" class="form-control input-sm" value="<?php echo $_SESSION['usuarios'];?>">
         </div>
     </div>
 
