@@ -4,11 +4,16 @@
         <div class="row">
             <div class="col-sm mb-3">
                 <div class="title">
-                    <h5>REPORTE</h5>
+                    <h5>REPORTE - PCPP</h5>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm">
+            <h5 style="text-align:center; font-family: inherit;font-size: 15px;color: #000;line-height: 1.2;">-------------- Seleccione el Año y Establecimiento a buscar --------------</h5>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-sm mb-3">
                 <div class="row">
@@ -41,6 +46,7 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-sm">
                 <button name="btnReporte" id="btnReporte" type="button" class="btn btn-sm btn-outline-dark">REPORTE PCPP</button>
