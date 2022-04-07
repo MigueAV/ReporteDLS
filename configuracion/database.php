@@ -17,7 +17,7 @@ class database {
         return $conn;
     }
     public static function conexionAuditoria() {
-        $serverName = "181.177.233.54";
+        $serverName = "192.168.20.58";
         $connectionInfo = array("Database" => "SEGUROS","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"123456");
         $conn1 = sqlsrv_connect($serverName, $connectionInfo);
 
