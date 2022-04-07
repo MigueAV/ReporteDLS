@@ -59,6 +59,9 @@ function guardar_nuevacontra(){
             }
         });
     }
+    function cerrarsesion(){
+        window.location="/ReporteDLS";
+    }
     
 
 }
