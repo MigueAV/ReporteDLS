@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../libraries/PHPExcel/Classes/PHPExcel.php';
+require_once '../../PHPExcel/Classes/PHPExcel.php';
 
 require_once("../../configuracion/database.php");
 require_once("../modelo/gestion_model.php");
