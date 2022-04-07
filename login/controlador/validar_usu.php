@@ -17,4 +17,3 @@ if($username!='' and $userpass!='') {
         echo 'ERROR';
     }
 }
-?>

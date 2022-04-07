@@ -15,9 +15,3 @@ $perfil=$_POST['perfil'];
 $hash = password_hash($dni, PASSWORD_DEFAULT, [100]);
 
 $guardar->guardar_usuario($usuario,$dni,$hash,$perfil,$apellido1,$nombres,$apellido2);
-
-
-
-
-
-?>
