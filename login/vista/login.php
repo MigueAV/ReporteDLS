@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>.::HSB::.</title>
+    <title>Diris Lima Sur</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <meta http-equiv="Expires" content="0">
@@ -60,13 +60,15 @@
 <body class="m-0 vh-100 row justify-content-center align-items-center">
 
     <div class="container ">
+    
         <div class="d-flex  justify-content-center text-center">
-            <div class=" border col-auto align-self-center text-center cont" style="opacity:1; padding-left:0;padding-right:0;border:solid;border-radius: 20px 20px 50px 30px;-webkit-border-radius: 20px 20px 50px 30px;-moz-border-radius: 20px 20px 50px 30px;">
-                <div class="flat" style="border-color:black;border:solid;border-radius: 20px 20px 50px 30px;-webkit-border-radius: 20px 20px 50px 30px;-moz-border-radius: 20px 20px 50px 30px;">
+            <div class=" border col-auto align-self-center text-center cont" style="opacity:1; padding-left:0;padding-right:0;border:solid;border-radius: 20px 20px 50px 30px;-webkit-border-radius: 20px 20px 30px 30px;-moz-border-radius: 20px 20px 50px 30px;">
+                <div class="flat" style="border-color:black;border:solid;border-radius: 20px 20px 30px 30px;-webkit-border-radius: 20px 20px 30px 30px;-moz-border-radius: 20px 20px 30px 30px;">
                     <div class="card-header" style="text-align: center;">
-                        <img src="./login/vista/img/logo_honadomani.png" class="center-block img-responsive" style="border-radius: 50%;" alt="AVATAR">
+                    <img src="./login/vista/img/logodirisls.png" class="center-block img-responsive" style="border-radius: 10%;width:50%;height:10%"  alt="AVATAR">
                         <br></br>
-                        <h3 style="text-align:center; font-family: Montserrat-ExtraBold;font-size: 30px;color: #fff;line-height: 1.2;">Sistema de Auditoria</h3>
+                        <h3 style="text-align:center; font-family: inherit;font-size: 30px;color: #fff;line-height: 1.2;">¡Bienvenido!</h3>
+                        <br>
                     </div>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
