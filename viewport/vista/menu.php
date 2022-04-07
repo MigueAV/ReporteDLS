@@ -21,40 +21,36 @@
         });
     </script>
     <script type="text/javascript">
-    $(document).ready(function(){
-        var valor=$('#nuevop').val();
+        $(document).ready(function(){
+            var valor=$('#nuevop').val();
 
-        if(valor!='0'){
-            $('#cambiarcontra').click();
-        }
-
-        $("#cambiarcontra").click(function(){
-            setTimeout(focuscontra, 500);
-        });
-
-        $("#confi_contra").keyup(function() {
-            if(event.keyCode === 13){
-                $("#guardar_nuevacontra").click();
+            if(valor!='0'){
+                $('#cambiarcontra').click();
             }
 
+            $("#cambiarcontra").click(function(){
+                setTimeout(focuscontra, 500);
+            });
+
+            $("#confi_contra").keyup(function() {
+                if(event.keyCode === 13){
+                    $("#guardar_nuevacontra").click();
+                }
+
+            });
         });
-    });
     </script>
 </head>
 
-
 <body>
-
-    <?php
-        include 'reporte.php';
-    ?>
-
     <div class="container">
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra" > cambiarcontra</button>
         <div style="display:none;">
             <input id="nuevop" name="nuevop" class="form-control input-sm" value="<?php echo $_SESSION['nuevo'];?>">
             <input id="Usuario" name="Usuario" class="form-control input-sm" value="<?php echo $_SESSION['usuarios'];?>">
         </div>
+
+        <?php  include 'reporte.php'; ?>
     </div>
 
   
@@ -97,7 +93,7 @@
             <p style="text-align:left" class="mx-1">Creado por Equipo Informático ETS</p>
         </div>
     </div>
-    
+
     <?php
     include '../configuracion/alertas.php';
     ?>

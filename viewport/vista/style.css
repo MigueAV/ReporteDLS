@@ -1,6 +1,5 @@
 
 html,body {
-    /*background-image:  url("img/white.png") ;*/
     width: 100%;  
     min-height: 100vh;
     display: -webkit-box;
@@ -181,7 +180,7 @@ thead tr th {
     background: white;
     -webkit-border-radius: 20px 20px 20px 20px;
     -moz-border-radius: 20px 20px 20px 20px;
-    margin: 0 35% !important;
+    margin: 0 25% !important;
 }
 
 .title {
