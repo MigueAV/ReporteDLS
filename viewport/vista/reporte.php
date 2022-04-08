@@ -33,8 +33,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm mb-3">
+        <div class="row mb-3">
+            <div class="col-sm">
                 <div class="row">
                     <div class="col-1">
                         <label for="establecimiento">EESS:</label>
@@ -45,10 +45,27 @@
                 </div>
             </div>
         </div>
-        <br>
+        <div class="row mb-3">
+            <div class="col-sm">
+                <div class="row">
+                    <div class="col-1">
+                        <label for="establecimiento">Archivo:</label>
+                    </div>
+                    <div class="col">
+                        <input name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" type="file" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--br-->
         <div class="row">
             <div class="col-sm">
-                <button name="btnReporte" id="btnReporte" type="button" class="btn btn-sm btn-outline-dark">REPORTE PCPP</button>
+                <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-dark">IMPORTAR</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-dark">EXPORTAR</button>
             </div>
         </div>
 
