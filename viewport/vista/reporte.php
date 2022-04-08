@@ -3,20 +3,21 @@
         <div class="row">
             <div class="col-sm mb-3">
                 <div class="title">
-                    <h5>REPORTE - PCPP</h5>
+                    <h5>PCPP GESTIONADOR</h5>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-            <h5 style="text-align:center; font-family: inherit;font-size: 15px;color: #000;line-height: 1.2;">-------------- Seleccione el Año y Establecimiento a buscar --------------</h5>
+                <h5 style="text-align:center; font-family: inherit;font-size: 15px;color: #000;line-height: 1.2;">-------------- Seleccione el Año y Establecimiento a buscar --------------</h5>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-sm mb-3">
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2"></div>
+                    <div class="col-2">
                         <label for="anio">AÑO:</label>
                     </div>
                     <div class="col">
@@ -30,42 +31,63 @@
                             ?>
                         </select>
                     </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm mb-3">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <label for="periodo">PERIODO:</label>
+                    </div>
+                    <div class="col">
+                        <select name="periodo" id="periodo" class="form-control form-control-sm">
+                        </select>
+                    </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2"></div>
+                    <div class="col-2">
                         <label for="establecimiento">EESS:</label>
                     </div>
                     <div class="col">
                         <select name="establecimiento" id="establecimiento" class="form-control form-control-sm"></select>
                     </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-sm">
                 <div class="row">
+                    <div class="col-2"></div>
                     <div class="col-2">
                         <label for="archivoupdate">Archivo:</label>
                     </div>
                     <div class="col">
                         <input name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" type="file" />
                     </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
         <!--br-->
-        <div class="row">
-            <div class="col-sm">
-                <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-dark">IMPORTAR</button>
+        <div class="row mb-3">
+            <div class="col">
+                <button name="btnPlantilla" id="btnPlantilla" type="button" class="btn btn-sm btn-outline-secondary">PLANTILLA</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-dark">EXPORTAR</button>
+            <div class="col">
+                <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
+            </div>
+            <div class="col">
+                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary">EXPORTAR</button>
             </div>
         </div>
 
