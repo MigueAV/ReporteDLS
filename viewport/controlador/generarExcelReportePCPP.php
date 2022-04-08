@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../PHPExcel/Classes/PHPExcel.php';
+require_once '../../libraries/PHPExcel/Classes/PHPExcel.php';
 
 require_once("../../configuracion/database.php");
 require_once("../modelo/gestion_model.php");
@@ -10,10 +10,10 @@ $model = new gestion_model();
 
 $result = array();
 
-$lista = $model->ListaEstablecimiento();
-
 $anio = $_GET['anio'];
 $eess = $_GET['eess'];
+
+$lista = $model->ReportePCPP($anio, $eess);
 
 // Establecer propiedades
 $objPHPExcel->getProperties()
@@ -40,21 +40,20 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 $i = 4;
 
-foreach ($lista as $detalle) {
+while ($row = sqlsrv_fetch_array($lista, SQLSRV_FETCH_ASSOC)) {
     $objPHPExcel->setActiveSheetIndex(0)
-        ->setCellValue('A' . $i, $detalle['NRO'])
-        ->setCellValue('B' . $i, $detalle['FUA'])
-        ->setCellValue('C' . $i, $detalle['historia'])
-        ->setCellValue('D' . $i, $detalle['Beneficiario'])
-        ->setCellValue('E' . $i, $detalle['Fecha'])
-        ->setCellValue('F' . $i, $detalle['Servicio'])
-        ->setCellValue('G' . $i, $detalle['Contrato'])
-        ->setCellValue('H' . $i, $detalle['Periodo'])
-        ->setCellValue('I' . $i, $detalle['Digitador'])
-        ->setCellValue('J' . $i, $detalle['Usuario']);
+        ->setCellValue('A' . $i, $row['NRO'])
+        ->setCellValue('B' . $i, $row['FUA'])
+        ->setCellValue('C' . $i, $row['historia'])
+        ->setCellValue('D' . $i, $row['Beneficiario'])
+        ->setCellValue('E' . $i, $row['Fecha'])
+        ->setCellValue('F' . $i, $row['Servicio'])
+        ->setCellValue('G' . $i, $row['Contrato'])
+        ->setCellValue('H' . $i, $row['Periodo'])
+        ->setCellValue('I' . $i, $row['Digitador'])
+        ->setCellValue('J' . $i, $row['Usuario']);
+    $i++;
 }
-
-
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="pruebaReal.xlsx"');

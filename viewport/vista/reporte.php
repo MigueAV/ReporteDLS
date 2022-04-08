@@ -48,8 +48,8 @@
         <div class="row mb-3">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-1">
-                        <label for="establecimiento">Archivo:</label>
+                    <div class="col-2">
+                        <label for="archivoupdate">Archivo:</label>
                     </div>
                     <div class="col">
                         <input name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" type="file" />
