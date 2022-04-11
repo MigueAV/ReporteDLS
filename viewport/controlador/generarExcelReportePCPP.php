@@ -1,11 +1,14 @@
 <?php
 
-require_once '../../libraries/PHPExcel/Classes/PHPExcel.php';
+require '../../vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = new Spreadsheet();
+$sheet = $spreadsheet->getActiveSheet();
 
 require_once("../../configuracion/database.php");
 require_once("../modelo/gestion_model.php");
-
-$objPHPExcel = new PHPExcel();
 $model = new gestion_model();
 
 $result = array();
@@ -16,17 +19,17 @@ $eess = $_GET['eess'];
 $lista = $model->ReportePCPP($anio, $eess);
 
 // Establecer propiedades
-$objPHPExcel->getProperties()
+/*$objPHPExcel->getProperties()
     ->setCreator("Diris Lima Sur")
     //->setLastModifiedBy("Cattivo")
     ->setTitle("Reporte PCPP")
-    ->setSubject("Reporte PCPP");
+    ->setSubject("Reporte PCPP");*/
 //->setDescription("Demostracion sobre como crear archivos de Excel desde PHP.")
 //->setKeywords("Excel Office 2007 openxml php")
 //->setCategory("Pruebas de Excel");
 
 
-$objPHPExcel->setActiveSheetIndex(0)
+$sheet
     ->setCellValue('A3', 'NRO')
     ->setCellValue('B3', 'FUA')
     ->setCellValue('C3', 'HISTORIA')
@@ -41,7 +44,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 $i = 4;
 
 while ($row = sqlsrv_fetch_array($lista, SQLSRV_FETCH_ASSOC)) {
-    $objPHPExcel->setActiveSheetIndex(0)
+    $sheet
         ->setCellValue('A' . $i, $row['NRO'])
         ->setCellValue('B' . $i, $row['FUA'])
         ->setCellValue('C' . $i, $row['historia'])
@@ -55,9 +58,8 @@ while ($row = sqlsrv_fetch_array($lista, SQLSRV_FETCH_ASSOC)) {
     $i++;
 }
 
-header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="pruebaReal.xlsx"');
-header('Cache-Control: max-age=0');
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-$objWriter->save('php://output');
+$writer = new Xlsx($spreadsheet);
+$writer->save('pruebaReal.xlsx');
+header("Location: pruebaReal.xlsx");
+
 exit;
