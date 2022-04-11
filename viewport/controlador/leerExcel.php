@@ -1,27 +1,59 @@
 <?php
 
-require_once '../../libraries/PHPExcel/Classes/PHPExcel.php';
+
+require '../../vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 $file = $_POST['excel'];
 
-$archivo = "./upload/$file";
+$rutaArchivo  = "./upload/$file";
+
+$res = array();
 
 try {
-    $inputFileType = PHPExcel_IOFactory::identify($archivo);
-    $objReader = PHPExcel_IOFactory::createReader($inputFileType);
-    $objPHPExcel = $objReader->load($archivo);
+    $documento = IOFactory::load($rutaArchivo);
+    $totalDeHojas = $documento->getSheetCount();
 
-    $sheet = $objPHPExcel->getSheet(0);
-    $highestRow = $sheet->getHighestRow();
-    $highestColumn = $sheet->getHighestColumn();
+    for ($indiceHoja = 0; $indiceHoja < $totalDeHojas; $indiceHoja++) {
+        $hojaActual = $documento->getSheet($indiceHoja);
+        $numeroMayorDeFila = $hojaActual->getHighestRow(); // Numérico
+        $letraMayorDeColumna = $hojaActual->getHighestColumn(); // Letra
+        $numeroMayorDeColumna = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($letraMayorDeColumna);
+
+        for ($indiceFila = 1; $indiceFila <= $numeroMayorDeFila; $indiceFila++) {
+            $n = ''; $fua = ''; $his = '';
+            for ($indiceColumna = 1; $indiceColumna <= $numeroMayorDeColumna; $indiceColumna++) {
+                $celda = $hojaActual->getCellByColumnAndRow($indiceColumna, $indiceFila);
+                $valorRaw = $celda->getValue();
+                $valorFormateado = $celda->getFormattedValue();
+                $valorCalculado = $celda->getCalculatedValue();
+                $fila = $celda->getRow();
+
+                $columna = $celda->getColumn();
+
+                if($columna == 'A') $n = $valorRaw;
+                if($columna == 'B') $fua = $valorRaw;
+                if($columna == 'C') $his = $valorRaw;                
+            }
+            $res[]  = array('N' => $n, 'fua' => $fua, 'his' => $his);
+        }
+    }
+
+    $worksheetData = $reader->listWorksheetInfo($inputFileName);
 
     $res = array();
 
-    for ($row = 2; $row <= $highestRow; $row++) {
-        $n      = $sheet->getCell("A" . $row)->getValue();
-        $fua    =  $sheet->getCell("B" . $row)->getValue();
-        $his    = $sheet->getCell("C" . $row)->getValue();
-        $res[]  = array('N' => $n, 'fua' => $fua, 'his' => $his);
+    foreach ($worksheetData as $worksheet) {
+        $sheetName = $worksheet['worksheetName'];
+        $reader->setLoadSheetsOnly($sheetName);
+        $spreadsheet = $reader->load($inputFileName);
+
+        $worksheet = $spreadsheet->getActiveSheet();
+        $arr = $worksheet->toArray();
+        $n      = print_r($arr, 1);
+        $fua    = print_r($arr, 2);
+        $his    = print_r($arr, 3);
     }
 } catch (Exception $e) {
     $res[] = array('Error' => $e);
