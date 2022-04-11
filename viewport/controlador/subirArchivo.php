@@ -16,7 +16,7 @@ $res = array();
 
 if ($extension == 'xlsx') {
     if (move_uploaded_file($ruta, $fulldest)) {
-        $res[] = array('message' => 'Se subió correctamente', 'type' => 'success');
+        $res[] = array('message' => 'Se subió correctamente', 'type' => 'success', 'file' => $nombre, 'ext' => $extension);
     } else {
         $res[] = array('message' => 'No se subió correctamente', 'type' => 'error');
     }

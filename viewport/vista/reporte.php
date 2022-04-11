@@ -73,6 +73,7 @@
                     </div>
                     <div class="col">
                         <input type="file" name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" >
+                        <input type="hidden" name="archivo" id="archivo">
                     </div>
                     <div class="col-2"></div>
                 </div>

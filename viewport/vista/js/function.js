@@ -151,6 +151,7 @@ function generarReportePCPP() {
 
 function subirArchivo() {
     var file = $("#archivoupdate")[0].files[0];
+    var archivo = $("#archivoupdate").val();
 
     var data = new FormData();
     data.append("archivo", file);
@@ -180,6 +181,8 @@ function subirArchivo() {
                     '',
                     e.type
                 )
+
+                $("#archivo").val(e.file);
             })
         }
     });
