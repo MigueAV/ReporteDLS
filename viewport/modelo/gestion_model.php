@@ -31,4 +31,10 @@ class gestion_model
         $s = sqlsrv_query($this->db, $c);
         return $s;
     }
+
+    public function ListarPeriodo(){
+        $c = "exec listarPeriodo";
+        $s = sqlsrv_query($this->db, $c);
+        return $s;
+    }
 }

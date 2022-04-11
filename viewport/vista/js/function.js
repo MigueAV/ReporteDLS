@@ -35,8 +35,23 @@ function listaEstablecimiento() {
     });
 }
 
+function listarPeriodo() {
+    $("#periodo").empty();
+    $.ajax({
+        type: 'post',
+        url: 'controlador/listarPeriodo.php',
+        dataType: 'json',
+        success: function (data) {
+            $.each(data, function (i, e) {
+                $("#periodo").append('<option value="' + e.Periodo + '">' + e.Nombre + '</option>')
+            });
+        }
+    });
+}
+
 $(document).ready(function () {
     listaEstablecimiento();
+    listarPeriodo();
 
     $("#btnReporte").click(function () {
         generarReportePCPP();
@@ -158,8 +173,8 @@ function subirArchivo() {
         },
         success: function (res) {
             console.log(res);
-            
-            $.each(res, function(i, e){
+
+            $.each(res, function (i, e) {
                 Swal.fire(
                     e.message,
                     '',
