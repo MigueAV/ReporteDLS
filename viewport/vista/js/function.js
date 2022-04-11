@@ -76,6 +76,14 @@ $(document).ready(function () {
             DescargarPlantilla();
         }
     });
+
+    $("#btnExportar").click(function () {
+        exportarData();
+    }).keyup(function (event) {
+        if (event.keyCode == 13) {
+            exportarData();
+        }
+    });
 });
 
 function focuscontra() {
@@ -151,7 +159,6 @@ function generarReportePCPP() {
 
 function subirArchivo() {
     var file = $("#archivoupdate")[0].files[0];
-    var archivo = $("#archivoupdate").val();
 
     var data = new FormData();
     data.append("archivo", file);
@@ -184,6 +191,24 @@ function subirArchivo() {
 
                 $("#archivo").val(e.file);
             })
+        }
+    });
+}
+
+function exportarData(){
+    var arc = $("#archivo").val();
+
+    var data = {
+        excel: arc
+    }
+
+    $.ajax({
+        type: 'post',
+        url: 'controlador/leerExcel.php',
+        data: data,
+        dataType: 'json',
+        success: function(data){
+            console.log(data);  
         }
     });
 }
