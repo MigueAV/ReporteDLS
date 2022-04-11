@@ -72,7 +72,7 @@
                         <label for="archivoupdate">Archivo:</label>
                     </div>
                     <div class="col">
-                        <input name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" type="file" />
+                        <input type="file" name="archivoupdate" id="archivoupdate" class="form-control form-control-sm" >
                     </div>
                     <div class="col-2"></div>
                 </div>
