@@ -182,15 +182,13 @@ function subirArchivo() {
             $("#btnExportar").attr('disabled', true);
         },
         success: function (res) {
-            console.log(res);
-
             $.each(res, function (i, e) {
                 Swal.fire(
                     e.message,
                     '',
                     e.type
                 )
-
+                $("#archivo").val(e.file);
                 $("#btnExportar").attr('disabled', false);
             })
         }
@@ -201,6 +199,7 @@ function exportarData(){
     var arc = $("#archivo").val();
     var eess = $("#establecimiento").val();
     var esta = $('select[name="establecimiento"] option:selected').text();
+    Swal.showLoading();
 
     console.log(esta);
 
@@ -217,6 +216,7 @@ function exportarData(){
         dataType: 'json',
         success: function(data){
             console.log(data);
+            Swal.hideLoading();
             $.each(data, function(i, e){
                 window.location.href = e.link;
             });
