@@ -191,7 +191,6 @@ function subirArchivo() {
                     e.type
                 )
 
-                $("#archivo").val(e.file);
                 $("#btnExportar").attr('disabled', false);
             })
         }

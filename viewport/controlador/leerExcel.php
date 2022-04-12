@@ -1,10 +1,13 @@
 <?php
 
-
 require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 
 $spreadsheet = new Spreadsheet();
 
@@ -28,7 +31,15 @@ $reader->setReadDataOnly(true);
 
 $worksheetData = $reader->listWorksheetInfo($inputFileName);
 
+$color = new Color();
+$fill = new Fill();
+$alignment = new Alignment();
+$border = new Border();
+
 $spread = new Spreadsheet();
+
+$sheet = $spread->getActiveSheet();
+
 $spread
     ->getProperties()
     ->setCreator("Diris Lima Sur")
@@ -39,21 +50,54 @@ $spread
     ->setKeywords('PHPSpreadsheet')
     ->setCategory('Reporte');
 
-$sheet = $spread->getActiveSheet();
+$styleArray = [
+    'font' => [
+        'bold' => true,
+    ],
+    'alignment' => [
+        'horizontal' => $alignment::HORIZONTAL_CENTER,
+    ],
+    'borders' => [
+        'top' => [
+            'borderStyle' => $border::BORDER_THIN,
+        ],
+    ],
+    'fill' => [
+        'fillType' => $fill::FILL_GRADIENT_LINEAR,
+        'rotation' => 90,
+        'startColor' => [
+            'argb' => 'FFA0A0A0',
+        ],
+        'endColor' => [
+            'argb' => 'FFFFFFFF',
+        ],
+    ],
+];
+
+$stylePrimero = [
+    'font' => [
+        'bold' => true,
+    ],
+    'alignment' => [
+        'horizontal' => $alignment::HORIZONTAL_CENTER,
+    ]
+];
+
+$styleBorder = [
+    'borders' => [
+        'outline' => [
+            'borderStyle' => $border::BORDER_THIN,
+            'color' => ['argb' => '000000'],
+        ],
+    ],
+];
+
+
 //$sheet->set
 $sheet->setTitle('FUAS EVALUACION');
 
 $sheet1 = $spread->createSheet();
 $sheet1->setTitle('DETALLE PCPP');
-
-/*$styleCell = [
-    'borders' => [
-        'diagonalDirection' => Borders::DIAGONAL_BOTH,
-        'allBorders' => [
-            'borderStyle' => Border::BORDER_THIN,
-        ],
-    ]
-];*/
 
 foreach ($worksheetData as $worksheet) {
 
@@ -65,10 +109,16 @@ foreach ($worksheetData as $worksheet) {
     $worksheet = $spreadsheet->getActiveSheet();
     $arr = $worksheet->toArray();
 
-    $sheet->setCellValue("A1", "N");
-    $sheet->setCellValue("B1", "FUA");
-    $sheet->setCellValue("C1", "HISTORIA");
-    $sheet->setCellValue("D1", "FECHA");
+    $sheet->mergeCells('A1:D1');
+    $sheet->setCellValue("A1", "PCPP - $esta");
+    $sheet->getStyle('A1')->applyFromArray($stylePrimero);
+
+    $sheet->setCellValue("A2", "N");
+    $sheet->setCellValue("B2", "FUA");
+    $sheet->setCellValue("C2", "HISTORIA");
+    $sheet->setCellValue("D2", "FECHA");
+
+    $sheet->getStyle('A2:D2')->applyFromArray($styleArray);
 
     $sheet1->setCellValue("A1", "N");
     $sheet1->setCellValue("B1", "FUA");
@@ -81,7 +131,10 @@ foreach ($worksheetData as $worksheet) {
     $sheet1->setCellValue("I1", "DIGITADOR");
     $sheet1->setCellValue("J1", "USUARIO");
 
-    $j = 2;
+    $sheet1->getStyle('A1:J1')->applyFromArray($styleArray);
+
+    $j = 3;
+    $k = 2;
     for ($i = 1; $i < count($arr); $i++) {
         $n      = $arr[$i][0];
         $fua    = $arr[$i][1];
@@ -96,20 +149,40 @@ foreach ($worksheetData as $worksheet) {
             $sheet->setCellValue("C$j", $row['historia']);
             $sheet->setCellValue("D$j", $row['Fecha']);
 
-            $sheet1->setCellValue("A$j", $n);
-            $sheet1->setCellValue("B$j", $row['FUA']);
-            $sheet1->setCellValue("C$j", $row['historia']);
-            $sheet1->setCellValue("D$j", $row['Beneficiario']);
-            $sheet1->setCellValue("E$j", $row['Fecha']);
-            $sheet1->setCellValue("F$j", $row['Servicio']);
-            $sheet1->setCellValue("G$j", $row['Contrato']);
-            $sheet1->setCellValue("H$j", $row['Periodo']);
-            $sheet1->setCellValue("I$j", $row['Digitador']);
-            $sheet1->setCellValue("J$j", $row['Usuario']);
+            $sheet->getStyle("A$j:D$j")->applyFromArray($styleBorder);
+
+            $sheet1->setCellValue("A$k", $n);
+            $sheet1->setCellValue("B$k", $row['FUA']);
+            $sheet1->setCellValue("C$k", $row['historia']);
+            $sheet1->setCellValue("D$k", $row['Beneficiario']);
+            $sheet1->setCellValue("E$k", $row['Fecha']);
+            $sheet1->setCellValue("F$k", $row['Servicio']);
+            $sheet1->setCellValue("G$k", $row['Contrato']);
+            $sheet1->setCellValue("H$k", $row['Periodo']);
+            $sheet1->setCellValue("I$k", $row['Digitador']);
+            $sheet1->setCellValue("J$k", $row['Usuario']);
+            $sheet1->getStyle("A$k:J$k")->applyFromArray($styleBorder);
         }
         $j++;
+        $k++;
     }
 }
+
+$sheet->getColumnDimension('A')->setAutoSize(true);
+$sheet->getColumnDimension('B')->setAutoSize(true);
+$sheet->getColumnDimension('C')->setAutoSize(true);
+$sheet->getColumnDimension('D')->setAutoSize(true);
+
+$sheet1->getColumnDimension('A')->setAutoSize(true);
+$sheet1->getColumnDimension('B')->setAutoSize(true);
+$sheet1->getColumnDimension('C')->setAutoSize(true);
+$sheet1->getColumnDimension('D')->setAutoSize(true);
+$sheet1->getColumnDimension('E')->setAutoSize(true);
+$sheet1->getColumnDimension('F')->setAutoSize(true);
+$sheet1->getColumnDimension('G')->setAutoSize(true);
+$sheet1->getColumnDimension('H')->setAutoSize(true);
+$sheet1->getColumnDimension('I')->setAutoSize(true);
+$sheet1->getColumnDimension('J')->setAutoSize(true);
 
 //echo json_encode($res);
 

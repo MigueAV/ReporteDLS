@@ -13,7 +13,7 @@
             </div>
         </div>
         <br>
-        <div class="row">
+        <!--div class="row">
             <div class="col-sm mb-3">
                 <div class="row">
                     <div class="col-2"></div>
@@ -49,7 +49,7 @@
                     <div class="col-2"></div>
                 </div>
             </div>
-        </div>
+        </div-->
         <div class="row mb-3">
             <div class="col-sm">
                 <div class="row">
