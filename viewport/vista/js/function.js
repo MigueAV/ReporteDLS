@@ -178,6 +178,8 @@ function subirArchivo() {
                 'Hubo error',
                 'error'
             )
+
+            $("#btnExportar").attr('disabled', true);
         },
         success: function (res) {
             console.log(res);
@@ -190,6 +192,7 @@ function subirArchivo() {
                 )
 
                 $("#archivo").val(e.file);
+                $("#btnExportar").attr('disabled', false);
             })
         }
     });
@@ -197,9 +200,11 @@ function subirArchivo() {
 
 function exportarData(){
     var arc = $("#archivo").val();
+    var eess = $("#establecimiento").val();
 
     var data = {
-        excel: arc
+        excel: arc,
+        eess: eess
     }
 
     $.ajax({

@@ -88,7 +88,7 @@
                 <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
             </div>
             <div class="col">
-                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary">EXPORTAR</button>
+                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR</button>
             </div>
         </div>
 

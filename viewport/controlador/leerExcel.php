@@ -9,6 +9,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $spreadsheet = new Spreadsheet();
 
 $file = $_POST['excel'];
+$eess = $_POST['eess'];
 
 $inputFileType = 'Xlsx';
 $inputFileName  = "./upload/$file";
@@ -33,7 +34,13 @@ foreach ($worksheetData as $worksheet) {
 
     $worksheet = $spreadsheet->getActiveSheet();
     $arr = $worksheet->toArray();
-    $res[] = $arr;
+    for ($i = 1; $i < count($arr); $i++) {
+        $n      = $arr[$i][0];
+        $fua    = $arr[$i][1];
+        $hist   = $arr[$i][2];
+        $res[]  = array('N' => $n, 'FUA' => $fua, 'HISTORIA' => $hist);
+    }
+    
     //echo '<pre>', print_r($arr, 1), '</pre>';
 }
 
