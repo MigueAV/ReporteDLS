@@ -38,10 +38,10 @@ foreach ($worksheetData as $worksheet) {
         $n      = $arr[$i][0];
         $fua    = $arr[$i][1];
         $hist   = $arr[$i][2];
+        $hist   = str_replace('_', '', $hist);
         $res[]  = array('N' => $n, 'FUA' => $fua, 'HISTORIA' => $hist);
     }
     
-    //echo '<pre>', print_r($arr, 1), '</pre>';
 }
 
 echo json_encode($res);
