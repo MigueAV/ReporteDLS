@@ -3,62 +3,38 @@
 
 require '../../vendor/autoload.php';
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = new Spreadsheet();
 
 $file = $_POST['excel'];
 
-$rutaArchivo  = "./upload/$file";
+$inputFileType = 'Xlsx';
+$inputFileName  = "./upload/$file";
 
 $res = array();
 
-try {
-    $documento = IOFactory::load($rutaArchivo);
-    $totalDeHojas = $documento->getSheetCount();
+/** Create a new Reader of the type defined in $inputFileType **/
+$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+/** Advise the Reader that we only want to load cell data **/
+$reader->setReadDataOnly(true);
 
-    for ($indiceHoja = 0; $indiceHoja < $totalDeHojas; $indiceHoja++) {
-        $hojaActual = $documento->getSheet($indiceHoja);
-        $numeroMayorDeFila = $hojaActual->getHighestRow(); // Numérico
-        $letraMayorDeColumna = $hojaActual->getHighestColumn(); // Letra
-        $numeroMayorDeColumna = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($letraMayorDeColumna);
+$worksheetData = $reader->listWorksheetInfo($inputFileName);
 
-        for ($indiceFila = 1; $indiceFila <= $numeroMayorDeFila; $indiceFila++) {
-            $n = ''; $fua = ''; $his = '';
-            for ($indiceColumna = 1; $indiceColumna <= $numeroMayorDeColumna; $indiceColumna++) {
-                $celda = $hojaActual->getCellByColumnAndRow($indiceColumna, $indiceFila);
-                $valorRaw = $celda->getValue();
-                $valorFormateado = $celda->getFormattedValue();
-                $valorCalculado = $celda->getCalculatedValue();
-                $fila = $celda->getRow();
+foreach ($worksheetData as $worksheet) {
 
-                $columna = $celda->getColumn();
+    $sheetName = $worksheet['worksheetName'];
 
-                if($columna == 'A') $n = $valorRaw;
-                if($columna == 'B') $fua = $valorRaw;
-                if($columna == 'C') $his = $valorRaw;                
-            }
-            $res[]  = array('N' => $n, 'fua' => $fua, 'his' => $his);
-        }
-    }
+    //echo "<h4>$sheetName</h4>";
+    /** Load $inputFileName to a Spreadsheet Object **/
+    $reader->setLoadSheetsOnly($sheetName);
+    $spreadsheet = $reader->load($inputFileName);
 
-    $worksheetData = $reader->listWorksheetInfo($inputFileName);
-
-    $res = array();
-
-    foreach ($worksheetData as $worksheet) {
-        $sheetName = $worksheet['worksheetName'];
-        $reader->setLoadSheetsOnly($sheetName);
-        $spreadsheet = $reader->load($inputFileName);
-
-        $worksheet = $spreadsheet->getActiveSheet();
-        $arr = $worksheet->toArray();
-        $n      = print_r($arr, 1);
-        $fua    = print_r($arr, 2);
-        $his    = print_r($arr, 3);
-    }
-} catch (Exception $e) {
-    $res[] = array('Error' => $e);
+    $worksheet = $spreadsheet->getActiveSheet();
+    $arr = $worksheet->toArray();
+    $res[] = $arr;
+    //echo '<pre>', print_r($arr, 1), '</pre>';
 }
-
-
 
 echo json_encode($res);
