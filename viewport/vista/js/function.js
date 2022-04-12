@@ -201,10 +201,14 @@ function subirArchivo() {
 function exportarData(){
     var arc = $("#archivo").val();
     var eess = $("#establecimiento").val();
+    var esta = $('select[name="establecimiento"] option:selected').text();
+
+    console.log(esta);
 
     var data = {
         excel: arc,
-        eess: eess
+        eess: eess,
+        esta: esta
     }
 
     $.ajax({
@@ -213,7 +217,10 @@ function exportarData(){
         data: data,
         dataType: 'json',
         success: function(data){
-            console.log(data);  
+            console.log(data);
+            $.each(data, function(i, e){
+                window.location.href = e.link;
+            });
         }
     });
 }

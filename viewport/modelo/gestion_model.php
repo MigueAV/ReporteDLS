@@ -25,9 +25,9 @@ class gestion_model
         return $s;
     }
 
-    public function ReportePCPP($anio, $eess)
+    public function ReportePCPP($eess, $fua, $hist)
     {
-        $c = "exec [dbo].[REPORTE_PCPP] '$anio', '$eess'";
+        $c = "exec [dbo].[REPORTE_PCPP] '$eess', '$fua', '$hist'";
         $s = sqlsrv_query($this->db, $c);
         return $s;
     }
