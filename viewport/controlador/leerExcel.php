@@ -1,5 +1,7 @@
 <?php
 
+set_time_limit(99999999999);
+
 require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
