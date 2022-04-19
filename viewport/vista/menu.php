@@ -44,16 +44,36 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">Logo</a>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-        </li>
-    </ul>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">DIRIS LIMA SUR</a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!--<li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+            </li>-->
+        </ul>
+        <button type="button" class="navbar-text btn btn-outline-success-sm" onclick="cerrarsesion();"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion
+        </button>
+        </div>
+    </div>
     </nav>
 
     
@@ -105,8 +125,8 @@
 
     <div class="footer">
         <div class="list-inline-item">
-            <p style="text-align:left" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p> 
-            <p style="text-align:left" class="mx-1">Creado por Equipo Informático ETS</p>
+            <p style="text-align:left;font-size:11px;" class="mx-1" >© 2022 ET. de Seguros - Diris Lima Sur </p> 
+            <p style="text-align:left;font-size:11px;" class="mx-1">Creado por Equipo Informático ETS</p>
         </div>
     </div>
 

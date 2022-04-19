@@ -227,3 +227,7 @@ function exportarData(){
 function DescargarPlantilla() {
     window.location.href = "../plantilla/Plantilla_PCPP.xlsx"
 }
+
+function cerrarsesion(){
+    window.location="/ReporteDLS";
+}

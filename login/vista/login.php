@@ -114,19 +114,19 @@
                             <legend style="text-align:left;font-size:12px;color:white;padding-bottom:0">VALIDAR INFORMACIÓN</legend>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
                                 <input type="text" id="busquedacodusu" class="form-control" placeholder="USERNAME" onkeyup="saltar(event,'idresetear')" onclick="seleccionar('busquedacodusu')" style="text-align: center;text-transform: uppercase;" autocomplete=off>
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                                 <input type="text" id="idresetear" class="form-control" style="text-align: center;text-transform: uppercase;" onclick="seleccionar('idresetear')" placeholder="DNI" maxlength=8 autocomplete=off onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" onkeyup="if($('#idresetear').val()!=''){saltar(event,'btnreset');}">
                             </div>
                             <div class="input-group form-group">
                                 <div class="col-sm-12">
-                                    <button type="button" id="btnreset" class="btn login_btn btn-block" onclick="resetear();"><i class="fa fa-refresh" aria-hidden="true"></i> RESETEAR</button>
+                                    <button type="button" id="btnreset" class="btn login_btn btn-block" onclick="resetear();"><i class="fas fa-refresh" aria-hidden="true"></i> RESETEAR</button>
                                 </div>
 
                             </div>
@@ -137,20 +137,20 @@
                             <legend style="text-align:left;font-size:12px;color:white;padding-bottom:0">VALIDAR USUARIO</legend>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
                                 <input type="text" id="bus_valiusu" class="form-control" placeholder="USERNAME" onkeyup="saltar(event,'bus_codusu')" onclick="seleccionar('bus_valiusu')" style="text-align: center;text-transform: uppercase;" autocomplete=off>
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                                 <input type="password" id="bus_codusu" class="form-control" style="text-align: center;text-transform: uppercase;" placeholder="CONTRASEÑA" onclick="seleccionar('bus_codusu')" autocomplete=off onkeyup="if($('#bus_codusu').val()!=''){saltar(event,'btncrearusuario');}">
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="col-sm-12">
-                                    <button type="button" id="btncrearusuario" class="btn login_btn btn-block" onclick="validar();"><i class="fa fa-refresh" aria-hidden="true"></i> VALIDAR</button>
+                                    <button type="button" id="btncrearusuario" class="btn login_btn btn-block" onclick="validar();"><i class="fas fa-refresh" aria-hidden="true"></i> VALIDAR</button>
                                 </div>
                             </div>
                         </div>
@@ -202,8 +202,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark btn-sm" id="guardar_usuario" onclick="guardar_usuario();"><i class="fa fa-save"></i> GUARDAR</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal"><i class="fa fa-close"></i> CERRAR</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm" id="guardar_usuario" onclick="guardar_usuario();"><i class="fas fa-save"></i> GUARDAR</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal"><i class="fas fa-close"></i> CERRAR</button>
                 </div>
             </div>
         </div>
