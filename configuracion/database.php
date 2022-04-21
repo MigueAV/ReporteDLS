@@ -2,8 +2,8 @@
 class database {
 
     public static function conexionSighos() {
-        $serverName = "192.168.20.58";
-        $connectionInfo = array("Database" => "db_sighoshsb","CharacterSet" => "UTF-8", "UID"=>"sighos_leshly", "PWD"=>"12345678");
+        $serverName = "SERV-SEGUROS\LIMASUR";
+        $connectionInfo = array("Database" => "db_sighoshsb","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"D3v3l0p321r$");
         $conn = sqlsrv_connect($serverName, $connectionInfo);
 
         if (!$conn) {
@@ -17,8 +17,8 @@ class database {
         return $conn;
     }
     public static function conexionAuditoria() {
-        $serverName = "192.168.20.58";
-        $connectionInfo = array("Database" => "SEGUROS","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"123456");
+        $serverName = "SERV-SEGUROS\LIMASUR";
+        $connectionInfo = array("Database" => "SEGUROS","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"D3v3l0p321r$");
         $conn1 = sqlsrv_connect($serverName, $connectionInfo);
 
         if (!$conn1) {
@@ -32,8 +32,8 @@ class database {
         return $conn1;
     }
     public static function conexionGESEGUR() {
-        $serverName = "192.168.20.58";
-        $connectionInfo = array("Database" => "GESEGUR","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"123456");
+        $serverName = "SERV-SEGUROS\LIMASUR";
+        $connectionInfo = array("Database" => "GESEGUR","CharacterSet" => "UTF-8", "UID"=>"dev", "PWD"=>"D3v3l0p321r$");
         $conn = sqlsrv_connect($serverName, $connectionInfo);
 
         if (!$conn) {
