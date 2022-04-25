@@ -27,7 +27,11 @@ class gestion_model
 
     public function ReportePCPP($eess, $fua, $hist)
     {
-        $c = "exec [dbo].[REPORTE_PCPP] '$eess', '$fua', '$hist'";
+        $dato = explode('-', $fua);
+        $disa = $dato[0];
+        $lote = $dato[1];
+        $numero = $dato[2];
+        $c = "exec [dbo].[REPORTE_PCPP] '$eess', '$disa', '$lote', '$numero', '$hist'";
         $s = sqlsrv_query($this->db, $c);
         return $s;
     }

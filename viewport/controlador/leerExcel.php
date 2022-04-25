@@ -132,8 +132,15 @@ foreach ($worksheetData as $worksheet) {
     $sheet1->setCellValue("H1", "PERIODO");
     $sheet1->setCellValue("I1", "DIGITADOR");
     $sheet1->setCellValue("J1", "USUARIO");
+    $sheet1->setCellValue("K1", "C1DX");
+    $sheet1->setCellValue("L1", "C2DX");
+    $sheet1->setCellValue("M1", "C3DX");
+    $sheet1->setCellValue("N1", "CODIGO");
+    $sheet1->setCellValue("O1", "NOMBRE");
+    $sheet1->setCellValue("P1", "CANT_PRESCRITA");
+    $sheet1->setCellValue("Q1", "CANT_ENTREGADA");
 
-    $sheet1->getStyle('A1:J1')->applyFromArray($styleArray);
+    $sheet1->getStyle('A1:Q1')->applyFromArray($styleArray);
 
     $j = 3;
     $k = 2;
@@ -163,7 +170,14 @@ foreach ($worksheetData as $worksheet) {
             $sheet1->setCellValue("H$k", $row['Periodo']);
             $sheet1->setCellValue("I$k", $row['Digitador']);
             $sheet1->setCellValue("J$k", $row['Usuario']);
-            $sheet1->getStyle("A$k:J$k")->applyFromArray($styleBorder);
+            $sheet1->setCellValue("K$k", $row['d1']);
+            $sheet1->setCellValue("L$k", $row['d2']);
+            $sheet1->setCellValue("M$k", $row['d3']);
+            $sheet1->setCellValue("N$k", $row['Codigo']);
+            $sheet1->setCellValue("O$k", $row['nombre']);
+            $sheet1->setCellValue("P$k", $row['cant_prescrita']);
+            $sheet1->setCellValue("Q$k", $row['cant_entregada']);
+            $sheet1->getStyle("A$k:Q$k")->applyFromArray($styleBorder);
         }
         $j++;
         $k++;
@@ -185,6 +199,13 @@ $sheet1->getColumnDimension('G')->setAutoSize(true);
 $sheet1->getColumnDimension('H')->setAutoSize(true);
 $sheet1->getColumnDimension('I')->setAutoSize(true);
 $sheet1->getColumnDimension('J')->setAutoSize(true);
+$sheet1->getColumnDimension('K')->setAutoSize(true);
+$sheet1->getColumnDimension('L')->setAutoSize(true);
+$sheet1->getColumnDimension('M')->setAutoSize(true);
+$sheet1->getColumnDimension('N')->setAutoSize(true);
+$sheet1->getColumnDimension('O')->setAutoSize(true);
+$sheet1->getColumnDimension('P')->setAutoSize(true);
+$sheet1->getColumnDimension('Q')->setAutoSize(true);
 
 //echo json_encode($res);
 
