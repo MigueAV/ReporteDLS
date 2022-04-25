@@ -195,7 +195,7 @@ function subirArchivo() {
     });
 }
 
-function exportarData(){
+function exportarData() {
     var arc = $("#archivo").val();
     var eess = $("#establecimiento").val();
     var esta = $('select[name="establecimiento"] option:selected').text();
@@ -214,10 +214,10 @@ function exportarData(){
         url: 'controlador/leerExcel.php',
         data: data,
         dataType: 'json',
-        success: function(data){
+        success: function (data) {
             console.log(data);
             Swal.hideLoading();
-            $.each(data, function(i, e){
+            $.each(data, function (i, e) {
                 window.location.href = e.link;
             });
         }
@@ -228,6 +228,6 @@ function DescargarPlantilla() {
     window.location.href = "../plantilla/Plantilla_PCPP.xlsx"
 }
 
-function cerrarsesion(){
-    window.location="/ReporteDLS";
+function cerrarsesion() {
+    window.location = "/ReporteDLS";
 }
