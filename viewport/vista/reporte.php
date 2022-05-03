@@ -50,50 +50,91 @@
                 </div>
             </div>
         </div-->
-        <div class="row mb-3">
+        <div class="row">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2">
                         <label for="establecimiento">EESS:</label>
                     </div>
-                    <div class="col">
+                    <div class="col-sm mb-3">
                         <select name="establecimiento" id="establecimiento" class="form-control form-control-sm"></select>
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-sm-2"></div>
                 </div>
             </div>
         </div>
-        <div class="row mb-3">
+        <div class="row">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2">
                         <label for="archivoupdate">Archivo:</label>
                     </div>
-                    <div class="col">
+                    <div class="col-sm mb-3">
                         <input type="file" name="archivoupdate" id="archivoupdate" class="form-control form-control-sm">
                         <input type="hidden" name="archivo" id="archivo">
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-sm-2"></div>
                 </div>
             </div>
         </div>
         <!--br-->
-        <div class="row mb-3">
-            <div class="col">
-                <button name="btnPlantilla" id="btnPlantilla" type="button" class="btn btn-sm btn-outline-secondary">PLANTILLA</button>
+
+        <?php
+
+        if ($perfil == 1) {
+        ?>
+            <div class="row">
+                <div class="col-sm mb-3">
+                    <button name="btnPlantilla" id="btnPlantilla" type="button" class="btn btn-sm btn-outline-secondary">PLANTILLA</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR</button>
+                </div>
             </div>
-            <div class="col">
-                <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
+        <?php
+        } else if ($perfil == 2) {
+        ?>
+            <div class="row">
+                <div class="col-sm mb-3">
+                    <button name="btnPlantilla" id="btnPlantilla" type="button" class="btn btn-sm btn-outline-secondary">PLANTILLA</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnExpAud" id="btnExpAud" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR</button>
+                </div>
             </div>
-            <div class="col">
-                <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR</button>
+        <?php
+        } else if ($perfil == 3) {
+        ?>
+            <div class="row">
+                <div class="col-sm mb-3">
+                    <button name="btnPlantilla" id="btnPlantilla" type="button" class="btn btn-sm btn-outline-secondary">PLANTILLA</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-sm mb-3">
+                    <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-success" disabled>EXPORTAR PCPP</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnExpAud" id="btnExpAud" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR AUDITOR</button>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+
+
 
     </div>
-
-
 
 </div>

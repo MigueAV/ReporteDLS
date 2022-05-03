@@ -36,6 +36,17 @@ class gestion_model
         return $s;
     }
 
+    public function REPORTE_PCPP_EXT($eess, $fua, $hist)
+    {
+        $dato = explode('-', $fua);
+        $disa = $dato[0];
+        $lote = $dato[1];
+        $numero = $dato[2];
+        $c = "exec [dbo].[REPORTE_PCPP_EXT] '$eess', '$disa', '$lote', '$numero', '$hist'";
+        $s = sqlsrv_query($this->db, $c);
+        return $s;
+    }
+
     public function ListarPeriodo(){
         $c = "exec listarPeriodo";
         $s = sqlsrv_query($this->db, $c);

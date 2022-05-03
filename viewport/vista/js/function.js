@@ -78,6 +78,14 @@ $(document).ready(function () {
     });
 
     $("#btnExportar").click(function () {
+        exportarDataPCPP();
+    }).keyup(function (event) {
+        if (event.keyCode == 13) {
+            exportarDataPCPP();
+        }
+    });
+
+    $("#btnExpAud").click(function () {
         exportarData();
     }).keyup(function (event) {
         if (event.keyCode == 13) {
@@ -180,6 +188,7 @@ function subirArchivo() {
             )
 
             $("#btnExportar").attr('disabled', true);
+            $("#btnExpAud").attr('disabled', true);
         },
         success: function (res) {
             $.each(res, function (i, e) {
@@ -190,6 +199,7 @@ function subirArchivo() {
                 )
                 $("#archivo").val(e.file);
                 $("#btnExportar").attr('disabled', false);
+                $("#btnExpAud").attr('disabled', false);
             })
         }
     });
@@ -212,6 +222,35 @@ function exportarData() {
     $.ajax({
         type: 'post',
         url: 'controlador/leerExcel.php',
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            Swal.hideLoading();
+            $.each(data, function (i, e) {
+                window.location.href = e.link;
+            });
+        }
+    });
+}
+
+function exportarDataPCPP(){
+    var arc = $("#archivo").val();
+    var eess = $("#establecimiento").val();
+    var esta = $('select[name="establecimiento"] option:selected').text();
+    Swal.showLoading();
+
+    console.log(esta);
+
+    var data = {
+        excel: arc,
+        eess: eess,
+        esta: esta
+    }
+
+    $.ajax({
+        type: 'post',
+        url: 'controlador/generarPCPP.php',
         data: data,
         dataType: 'json',
         success: function (data) {

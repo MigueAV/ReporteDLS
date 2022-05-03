@@ -59,7 +59,7 @@ while ($row = sqlsrv_fetch_array($lista, SQLSRV_FETCH_ASSOC)) {
 }
 
 $writer = new Xlsx($spreadsheet);
-$writer->save('pruebaReal.xlsx');
+$writer->save('report/pruebaReal.xlsx');
 header("Location: pruebaReal.xlsx");
 
 exit;

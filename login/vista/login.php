@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <title>Diris Lima Sur</title>
@@ -59,12 +60,12 @@
 
 <body class="m-0 vh-100 row justify-content-center align-items-center">
     <div class="container ">
-    
+
         <div class="d-flex  justify-content-center text-center">
             <div class=" border col-auto align-self-center text-center cont" style="opacity:1; padding-left:0;padding-right:0;border:solid;border-radius: 20px 20px 50px 30px;-webkit-border-radius: 20px 20px 30px 30px;-moz-border-radius: 20px 20px 50px 30px;">
                 <div class="flat" style="border-color:black;border:solid;border-radius: 20px 20px 30px 30px;-webkit-border-radius: 20px 20px 30px 30px;-moz-border-radius: 20px 20px 30px 30px;">
                     <div class="card-header" style="text-align: center;">
-                    <img src="./login/vista/img/logodirisls.png" class="center-block img-responsive" style="border-radius: 10%;width:50%;height:10%"  alt="AVATAR">
+                        <img src="./login/vista/img/logodirisls.png" class="center-block img-responsive" style="border-radius: 10%;width:50%;height:10%" alt="AVATAR">
                         <br></br>
                         <h3 style="text-align:center; font-family: inherit;font-size: 30px;color: #fff;line-height: 1.2;">¡Bienvenido!</h3>
                         <br>
@@ -161,7 +162,7 @@
         </div>
 
     </div>
-    
+
     <div class="modal fade" id="myModalUsuario" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
@@ -272,9 +273,10 @@
     </script>
     <div class="footer">
         <div class="list-inline-item">
-            <p style="text-align:left" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p> 
-            <p style="text-align:left" class="mx-1">Creado por Equipo Informático ETS</p>
+            <p style="text-align:center" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur</p>
+            <p style="text-align:center" class="mx-1">Creado por Equipo Informático ETS</p>
         </div>
     </div>
 </body>
+
 </html>

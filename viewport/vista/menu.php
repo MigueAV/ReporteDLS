@@ -71,6 +71,15 @@ include '../configuracion/header.php';
 
     <div class="container">
         <?php
+        $perfil = $_SESSION['perfil'];
+        /*if ($perfil == 1) {
+            include 'reporte.php';
+        } else if ($perfil == 2) {
+            include 'auditor.php';
+        } else if ($perfil == 3) {
+            include 'supervisor.php';
+        }*/
+
         include 'reporte.php';
         ?>
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra"> cambiarcontra</button>
@@ -114,8 +123,8 @@ include '../configuracion/header.php';
 
     <div class="footer">
         <div class="list-inline-item">
-            <p style="text-align:left;font-size:11px;" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p>
-            <p style="text-align:left;font-size:11px;" class="mx-1">Creado por Equipo Informático ETS</p>
+            <p style="text-align:center;font-size:11px;" class="mx-1">© 2022 ET. de Seguros - Diris Lima Sur </p>
+            <p style="text-align:center;font-size:11px;" class="mx-1">Creado por Equipo Informático ETS</p>
         </div>
     </div>
 
