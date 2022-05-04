@@ -92,8 +92,13 @@
                 <div class="col-sm mb-3">
                     <button name="btnImportar" id="btnImportar" type="button" class="btn btn-sm btn-outline-info">IMPORTAR</button>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-sm mb-3">
-                    <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR</button>
+                    <button name="btnExportar" id="btnExportar" type="button" class="btn btn-sm btn-outline-success" disabled>EXPORTAR PCPP</button>
+                </div>
+                <div class="col-sm mb-3">
+                    <button name="btnExpAud" id="btnExpAud" type="button" class="btn btn-sm btn-outline-primary" disabled>EXPORTAR AUDITOR</button>
                 </div>
             </div>
         <?php
