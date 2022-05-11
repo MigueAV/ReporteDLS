@@ -22,7 +22,7 @@
     <!-- MDB -->
     <link href="../node_modules/mdb-ui-kit/css/mdb.min.css" rel="stylesheet" />
     <!-- MDB -->
-    <script type="text/javascript" src="../node_modules\mdb-ui-kit\js\mdb.min.js"></script>
+    <script type="module" src="../node_modules\mdb-ui-kit\js\mdb.min.js"></script>
     <script type="module" src="../node_modules/sweetalert2/src/sweetalert2.js"></script>
     <link href="../node_modules/@sweetalert2/theme-borderless/borderless.css" rel="stylesheet">
 </head>
