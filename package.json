@@ -2,6 +2,7 @@
   "dependencies": {
     "ajax": "^0.0.4",
     "jquery": "^3.6.0",
+    "jquery-ui": "^1.13.1",
     "mdb-ui-kit": "^4.0.0",
     "sweetalert2": "^11.4.13"
   }
