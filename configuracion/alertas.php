@@ -5,17 +5,19 @@
     });
     /*$('#modalMensaje').on('shown.bs.modal', function(e) {
       
-    });*/
+    });
 
     const myModalEl = document.getElementById('modalMensaje')
-    /*const modal = new mdb.Modal(myModalEl)
+    const modal = new mdb.Modal(myModalEl)
     modal.show()*/
 
-    //$("#modalMensaje").modal('show');
+    /*$("#cambiarcontra").click(function(){
 
-    myModalEl.addEventListener('shown.mdb.modal', (e) => {
+    });*/
+
+    /*myModalEl.addEventListener('shown.mdb.modal', (e) => {
       $("#focus").focus();
-    });
+    });*/
   });
 </script>
 

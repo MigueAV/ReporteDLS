@@ -26,7 +26,7 @@ include '../configuracion/header.php';
             var valor = $('#nuevop').val();
 
             if (valor != '0') {
-                $('#cambiarcontra').click();
+                $("#myModalCambiarContra").modal('show');
             }
 
             $("#cambiarcontra").click(function() {
@@ -83,7 +83,7 @@ include '../configuracion/header.php';
         include 'reporte.php';
         ?>
         <button id="cambiarcontra" style="display:none;" data-toggle="modal" data-target="#myModalCambiarContra"> cambiarcontra</button>
-        <div style="display:none;">
+        <div style="display:block;">
             <input id="nuevop" name="nuevop" class="form-control input-sm" value="<?php echo $_SESSION['nuevo']; ?>">
             <input id="Usuario" name="Usuario" class="form-control input-sm" value="<?php echo $_SESSION['usuarios']; ?>">
         </div>
